@@ -1,73 +1,48 @@
 <template>
   <div class="min-h-screen bg-gray-50 p-6">
-    <!-- Search Bar and Notification Section -->
-    <div class="sticky top-0 z-50 flex justify-between items-center px-6 py-3 bg-white/70 backdrop-blur-lg shadow-lg rounded-lg mb-6">
-      <!-- Search Bar -->
-      <div class="flex-1 max-w-lg">
-        <input
-          type="text"
-          placeholder="Search your courses here..."
-          class="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
-        />
-      </div>
+    <!-- Fixed Search Bar and Notification Section -->
+    <div class="sticky top-0 z-50 mb-6">
+      <div class="flex items-center justify-between rounded-lg bg-white/70 px-6 py-3 shadow-lg backdrop-blur-lg">
+        <!-- Search Bar -->
+        <div class="flex-1 max-w-lg">
+          <input
+            type="text"
+            placeholder="Search your courses here..."
+            class="w-full px-4 py-2 border rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
+          />
+        </div>
 
-      <!-- Notification Bell -->
-      <div class="relative ml-4">
-        <button
-          @click="toggleNotifications"
-          class="relative p-2 rounded-lg hover:bg-gray-100 transition-colors"
-          :class="{ 'bg-gray-100': showNotifications }"
-        >
-          <BellIcon class="w-6 h-6" />
-          <span
-            v-if="unreadNotifications > 0"
-            class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full"
+        <!-- Notification Bell -->
+        <div class="relative ml-4">
+          <button
+            @click="toggleNotifications"
+            class="relative p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            :class="{ 'bg-gray-100': showNotifications }"
           >
-            {{ unreadNotifications }}
-          </span>
-        </button>
-
-        <!-- Notification Dropdown -->
-        <div
-          v-if="showNotifications"
-          class="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden"
-        >
-          <div class="p-4 border-b border-gray-200 flex justify-between items-center">
-            <h3 class="font-semibold">Notifications</h3>
-            <button @click="markAllAsRead" class="text-sm text-blue-600 hover:text-blue-700">
-              Mark all as read
-            </button>
-          </div>
-
-          <div class="max-h-96 overflow-y-auto">
-            <div v-if="notifications.length === 0" class="p-4 text-center text-gray-500">
-              <BellOffIcon class="w-12 h-12 mx-auto mb-2 opacity-50" />
-              <p>No Recent Notifications</p>
-              <p class="text-sm">You'll be notified when there's something new</p>
-            </div>
-
-            <div
-              v-else
-              v-for="notification in notifications"
-              :key="notification.id"
-              class="p-4 border-b border-gray-100 hover:bg-gray-50"
-              :class="{ 'bg-blue-50': !notification.read }"
+            <!-- Bell Icon -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-6 h-6 text-gray-700"
             >
-              <div class="flex gap-3">
-                <div class="flex-shrink-0">
-                  <component
-                    :is="getNotificationIcon(notification.type)"
-                    class="w-5 h-5"
-                    :class="getNotificationIconColor(notification.type)"
-                  />
-                </div>
-                <div>
-                  <p class="text-sm">{{ notification.message }}</p>
-                  <p class="text-xs text-gray-500 mt-1">{{ formatTime(notification.timestamp) }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0a3 3 0 11-6 0m6 0H9"
+              />
+            </svg>
+
+            <!-- Unread Notifications Badge -->
+            <span
+              v-if="unreadNotifications > 0"
+              class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full"
+            >
+              {{ unreadNotifications }}
+            </span>
+          </button>
         </div>
       </div>
     </div>
@@ -120,3 +95,41 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      unreadNotifications: 5, // Example unread notifications count
+      showNotifications: false, // Toggle notification visibility
+      recentCourses: [
+        // Example courses data
+        {
+          id: 1,
+          title: 'Web Development',
+          instructor: 'John Doe',
+          instructorImage: '/path/to/image.jpg',
+          thumbnail: '/path/to/thumbnail.jpg',
+          tag: 'Frontend',
+          duration: '3 hours'
+        },
+        {
+          id: 2,
+          title: 'Backend Basics',
+          instructor: 'Jane Smith',
+          instructorImage: '/path/to/image.jpg',
+          thumbnail: '/path/to/thumbnail.jpg',
+          tag: 'Backend',
+          duration: '2 hours'
+        }
+        // Add more courses as needed
+      ]
+    };
+  },
+  methods: {
+    toggleNotifications() {
+      this.showNotifications = !this.showNotifications;
+    }
+  }
+};
+</script>
