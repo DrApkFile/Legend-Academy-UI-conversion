@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="flex h-screen">
-    <!-- Left Sidebar -->
+    <!-- Left Sidebar (unchanged) -->
     <aside class="w-64 bg-white border-r border-gray-200 p-4 flex-shrink-0">
       <div class="flex items-center mb-8">
-        <h1 class="text-xl font-bold">Academy</h1>
+        <h1 class="text-xl font-bold">Legend Academy</h1>
       </div>
 
       <nav class="space-y-2">
@@ -28,66 +28,86 @@
           <router-view></router-view>
         </section>
 
-        <!-- Profile Section -->
-        <section class="w-72 bg-white rounded-xl shadow-sm p-6">
-          <div class="text-right w-full mb-6">
-            <span class="text-sm text-gray-500">Your Profile</span>
+        <!-- Updated Profile Section -->
+        <section class="w-72 bg-white rounded-xl shadow-sm">
+          <div class="p-4 border-b">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium">Your Profile</span>
+              <button class="text-gray-500 hover:text-gray-700">
+                <Settings class="w-4 h-4" />
+              </button>
+            </div>
           </div>
-          <div class="flex flex-col items-center space-y-4">
-            <div class="w-20 h-20 rounded-full border-4 border-red-500 overflow-hidden">
-              <img
-                src="https://placehold.co/80"
-                alt="Profile picture"
-                class="w-full h-full object-cover"
-              />
+          
+          <div class="p-4 space-y-6">
+            <!-- Profile Info -->
+            <div class="flex flex-col items-center text-center space-y-2">
+              <div class="relative">
+                <img
+                  src="https://placehold.co/80"
+                  alt="Profile picture"
+                  class="w-16 h-16 rounded-full border-2 border-orange-500"
+                />
+                <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+              </div>
+              <div>
+                <h3 class="font-semibold">Chioma Favour</h3>
+                <p class="text-sm text-gray-500">Student</p>
+              </div>
             </div>
-            <div class="text-center">
-              <h3 class="font-semibold text-lg">Chioma Favour</h3>
-              <p class="text-sm text-gray-500">Student</p>
-            </div>
-            <div class="flex justify-center gap-8 w-full">
+
+            <!-- Stats -->
+            <div class="grid grid-cols-3 gap-4 py-2">
               <div class="text-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mx-auto mb-1 text-red-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M12 7h4m-4 4h4m-4 4h4m-6 8h-2m1-18h-1a2 2 0 000 4h.5M5 13l4 4L19 7"
-                  />
-                </svg>
-                <p class="font-semibold">64.50</p>
-                <p class="text-xs text-gray-500">Hours Spent</p>
+                <p class="text-xl font-semibold">80%</p>
+                <p class="text-xs text-gray-500">Task</p>
               </div>
               <div class="text-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-5 w-5 mx-auto mb-1 text-red-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M16 7a4 4 0 11-8 0m8 10H4m12 0a2 2 0 11-4 0h4z"
-                  />
-                </svg>
-                <p class="font-semibold">10</p>
+                <p class="text-xl font-semibold">64.5</p>
+                <p class="text-xs text-gray-500">Hours</p>
+              </div>
+              <div class="text-center">
+                <p class="text-xl font-semibold">10</p>
                 <p class="text-xs text-gray-500">Courses</p>
               </div>
             </div>
-            <div class="w-full">
-              <h4 class="font-medium mb-2">To do list</h4>
-              <div class="space-y-2 text-sm text-gray-500">
-                <p>• HTML and Interactive Design</p>
-                <p>• Introduction to Figma</p>
+
+            <!-- Progress Chart -->
+            <div class="space-y-2">
+              <h4 class="text-sm font-medium">Task Progress</h4>
+              <div class="h-24 flex items-end gap-2">
+                <div v-for="height in [40, 60, 30, 80, 50]" :key="height" 
+                     class="flex-1 bg-orange-100 rounded-t-lg"
+                     :style="{ height: height + '%' }">
+                  <div class="bg-orange-500 h-full rounded-t-lg" 
+                       :style="{ height: (height * 0.8) + '%' }"></div>
+                </div>
+              </div>
+              <div class="flex justify-between text-xs text-gray-500">
+                <span>Mon</span>
+                <span>Tue</span>
+                <span>Wed</span>
+                <span>Thu</span>
+                <span>Fri</span>
+              </div>
+            </div>
+
+            <!-- To Do List -->
+            <div class="space-y-2">
+              <h4 class="text-sm font-medium">To Do List</h4>
+              <div class="space-y-2">
+                <label class="flex items-center gap-2 text-sm text-gray-600">
+                  <input type="checkbox" class="rounded text-orange-500 focus:ring-orange-500" />
+                  HTML and Interactive Design
+                </label>
+                <label class="flex items-center gap-2 text-sm text-gray-600">
+                  <input type="checkbox" class="rounded text-orange-500 focus:ring-orange-500" />
+                  Introduction to Figma
+                </label>
+                <label class="flex items-center gap-2 text-sm text-gray-600">
+                  <input type="checkbox" class="rounded text-orange-500 focus:ring-orange-500" />
+                  UI/UX Design Course
+                </label>
               </div>
             </div>
           </div>
@@ -97,12 +117,6 @@
   </div>
 </template>
 
----
-
-### Updated Script
-Add the updated `script` section:
-
-```vue
 <script>
 import {
   LayoutDashboard,
@@ -120,6 +134,9 @@ import {
 
 export default {
   name: "App",
+  components: {
+    Settings,
+  },
   data() {
     return {
       navigationItems: [
@@ -135,6 +152,13 @@ export default {
         { name: "Settings", icon: Settings },
         { name: "Notification", icon: Bell },
       ],
+      taskProgress: {
+        mon: 80,
+        tue: 65,
+        wed: 45,
+        thu: 90,
+        fri: 75
+      }
     };
   },
 };
