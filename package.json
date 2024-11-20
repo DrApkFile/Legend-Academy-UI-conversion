@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.2.0",
     "git": "^0.1.5",
     "lucide-vue-next": "^0.460.0",
     "rollup": "^4.27.3",
