@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-gray-50 p-6">
-    <!-- Fixed Header Section -->
-    <div class="fixed top-0 left-0 w-full bg-white z-50 shadow p-4 flex justify-between items-center">
+    <!-- Search Bar and Notification Section -->
+    <div class="sticky top-0 z-50 flex justify-between items-center px-6 py-3 bg-white/70 backdrop-blur-lg shadow-lg rounded-lg mb-6">
       <!-- Search Bar -->
       <div class="flex-1 max-w-lg">
         <input
@@ -13,14 +13,16 @@
 
       <!-- Notification Bell -->
       <div class="relative ml-4">
-        <button 
+        <button
           @click="toggleNotifications"
           class="relative p-2 rounded-lg hover:bg-gray-100 transition-colors"
           :class="{ 'bg-gray-100': showNotifications }"
         >
           <BellIcon class="w-6 h-6" />
-          <span v-if="unreadNotifications > 0" 
-                class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full">
+          <span
+            v-if="unreadNotifications > 0"
+            class="absolute top-0 right-0 w-4 h-4 bg-red-500 text-white text-xs flex items-center justify-center rounded-full"
+          >
             {{ unreadNotifications }}
           </span>
         </button>
@@ -71,16 +73,18 @@
     </div>
 
     <!-- Main Content -->
-    <div class="mt-20">
+    <div>
       <!-- Welcome Section -->
       <div class="mb-8">
         <div class="bg-orange-500 text-white rounded-xl p-6 relative overflow-hidden">
           <div class="relative z-10">
             <h1 class="text-2xl font-bold mb-2">Welcome Back Favour!</h1>
             <p class="mb-4">
-              Congratulations! you have learned 80% of your course this month. Keep it up, you're almost there.
+              Congratulations! You have learned 80% of your course this month. Keep it up, you're almost there.
             </p>
-            <button class="bg-white text-orange-500 px-4 py-2 rounded-lg font-medium hover:bg-orange-50 transition-colors">
+            <button
+              class="bg-white text-orange-500 px-4 py-2 rounded-lg font-medium hover:bg-orange-50 transition-colors"
+            >
               Continue Learning
             </button>
           </div>
