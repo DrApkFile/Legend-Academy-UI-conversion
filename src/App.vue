@@ -33,9 +33,33 @@
           <div class="p-4 border-b">
             <div class="flex items-center justify-between">
               <span class="text-sm font-medium">Your Profile</span>
-              <button class="text-gray-500 hover:text-gray-700">
-                <Settings class="w-4 h-4" />
-              </button>
+              <div class="relative">
+                <button @click="toggleDropdown" class="text-gray-500 hover:text-gray-700">
+                  <MoreVertical class="w-4 h-4" />
+                </button>
+                <!-- Dropdown Menu -->
+                <div v-if="showDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+                  <div class="py-1">
+                    <h3 class="px-4 py-2 text-sm font-semibold text-gray-700">Admin</h3>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <User class="inline-block w-4 h-4 mr-2" />
+                      Teacher
+                    </a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <GraduationCap class="inline-block w-4 h-4 mr-2" />
+                      Student
+                    </a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <UserCircle class="inline-block w-4 h-4 mr-2" />
+                      My Profile
+                    </a>
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                      <LogOut class="inline-block w-4 h-4 mr-2" />
+                      Logout
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -130,12 +154,20 @@ import {
   Settings,
   Bell,
   Gauge,
+  MoreVertical,
+  User,
+  UserCircle,
+  LogOut,
 } from "lucide-vue-next";
 
 export default {
   name: "App",
   components: {
-    Settings,
+    MoreVertical,
+    User,
+    GraduationCap,
+    UserCircle,
+    LogOut,
   },
   data() {
     return {
@@ -158,8 +190,14 @@ export default {
         wed: 45,
         thu: 90,
         fri: 75
-      }
+      },
+      showDropdown: false,
     };
+  },
+  methods: {
+    toggleDropdown() {
+      this.showDropdown = !this.showDropdown;
+    },
   },
 };
 </script>
