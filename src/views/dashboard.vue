@@ -43,6 +43,19 @@
               {{ unreadNotifications }}
             </span>
           </button>
+
+          <!-- Notifications Dropdown -->
+          <div
+            v-if="showNotifications"
+            class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg overflow-hidden z-50"
+          >
+            <ul>
+              <li v-if="unreadNotifications > 0" class="p-4 text-gray-700">
+                You have {{ unreadNotifications }} unread notification(s).
+              </li>
+              <li v-else class="p-4 text-gray-500">No new notifications.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
