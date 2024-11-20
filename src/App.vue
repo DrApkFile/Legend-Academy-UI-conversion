@@ -194,7 +194,7 @@ export default {
         tue: 65,
         wed: 45,
         thu: 90,
-        fri: 75
+        fri: 75,
       },
       showDropdown: false,
     };
@@ -204,8 +204,7 @@ export default {
       this.showDropdown = !this.showDropdown;
     },
     logout() {
-      // Perform any logout logic here (e.g., clearing tokens, etc.)
-      this.router.push({ name: 'Login' }); // Assuming 'Login' is the name of your login route
+      this.router.push({ name: "Login" });
     },
   },
 };
