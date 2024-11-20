@@ -82,10 +82,6 @@ const handleLogin = () => {
   router.push({ name: 'dashboard' })
 }
 
-export default {
-  name: 'LoginView'
-}
-
 </script>
 
 <style scoped>

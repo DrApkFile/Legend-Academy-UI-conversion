@@ -53,7 +53,7 @@
                       <UserCircle class="inline-block w-4 h-4 mr-2" />
                       My Profile
                     </a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <a @click="logout" href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       <LogOut class="inline-block w-4 h-4 mr-2" />
                       Logout
                     </a>
@@ -198,6 +198,10 @@ export default {
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
     },
+    logout() {
+      // Redirect to the LoginView
+      this.$router.push({ name: "LoginView" });
+    }
   },
 };
 </script>
