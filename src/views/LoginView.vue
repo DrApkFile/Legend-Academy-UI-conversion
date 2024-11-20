@@ -81,6 +81,11 @@ const handleLogin = () => {
   // Redirect to Dashboard on successful login
   router.push({ name: 'dashboard' })
 }
+
+export default {
+  name: 'LoginView'
+}
+
 </script>
 
 <style scoped>
@@ -244,4 +249,4 @@ const handleLogin = () => {
   background-color: white;
   color: #FF4500;
 }
-</style> 
+</style>
