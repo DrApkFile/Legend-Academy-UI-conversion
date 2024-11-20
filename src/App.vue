@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="flex h-screen">
     <!-- Left Sidebar (updated) -->
-    <aside class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
+    <aside v-if="isLoggedIn" class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
       <div class="flex items-center mb-8">
         <h1 class="text-xl font-bold text-white">Legend Academy</h1>
       </div>
@@ -29,7 +29,7 @@
         </section>
 
         <!-- Updated Profile Section -->
-        <section class="w-72 bg-white rounded-xl shadow-sm">
+        <section v-if="isLoggedIn" class="w-72 bg-white rounded-xl shadow-sm">
           <div class="p-4 border-b">
             <div class="flex items-center justify-between">
               <span class="text-sm font-medium">Your Profile</span>
@@ -192,6 +192,7 @@ export default {
         fri: 75
       },
       showDropdown: false,
+      isLoggedIn: true,  // Initially true, indicating user is logged in
     };
   },
   methods: {
@@ -199,7 +200,7 @@ export default {
       this.showDropdown = !this.showDropdown;
     },
     logout() {
-      // Redirect to the LoginView
+      this.isLoggedIn = false;  // Set isLoggedIn to false on logout
       this.$router.push({ name: "LoginView" });
     }
   },
