@@ -1,9 +1,9 @@
 <template>
   <div id="app" class="flex h-screen">
-    <!-- Left Sidebar (unchanged) -->
-    <aside class="w-64 bg-white border-r border-gray-200 p-4 flex-shrink-0">
+    <!-- Left Sidebar (updated) -->
+    <aside class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
       <div class="flex items-center mb-8">
-        <h1 class="text-xl font-bold">Legend Academy</h1>
+        <h1 class="text-xl font-bold text-white">Legend Academy</h1>
       </div>
 
       <nav class="space-y-2">
@@ -11,8 +11,8 @@
           v-for="item in navigationItems"
           :key="item.name"
           :to="{ name: item.name }"
-          class="flex items-center px-4 py-2 rounded-lg text-gray-700 hover:bg-gray-100"
-          :class="{ 'bg-red-50 text-red-600': $route.name === item.name }"
+          class="flex items-center px-4 py-2 rounded-lg text-gray-300 hover:bg-orange-600 hover:text-white transition-colors duration-200"
+          :class="{ 'bg-orange-600 text-white': $route.name === item.name }"
         >
           <component :is="item.icon" class="w-5 h-5 mr-3" />
           {{ item.name }}
