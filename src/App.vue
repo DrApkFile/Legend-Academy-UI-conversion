@@ -205,7 +205,7 @@ export default {
     },
     logout() {
       // Perform any logout logic here (e.g., clearing tokens, etc.)
-      this.router.push({ name: './LoginView' }); // Assuming 'Login' is the name of your login route
+      this.router.push({ name: 'Login' }); // Assuming 'Login' is the name of your login route
     },
   },
 };
