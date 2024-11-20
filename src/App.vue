@@ -53,7 +53,7 @@
                       <UserCircle class="inline-block w-4 h-4 mr-2" />
                       My Profile
                     </a>
-                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <a @click="logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer">
                       <LogOut class="inline-block w-4 h-4 mr-2" />
                       Logout
                     </a>
@@ -142,6 +142,7 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 import {
   LayoutDashboard,
   GraduationCap,
@@ -168,6 +169,10 @@ export default {
     GraduationCap,
     UserCircle,
     LogOut,
+  },
+  setup() {
+    const router = useRouter();
+    return { router };
   },
   data() {
     return {
@@ -197,6 +202,10 @@ export default {
   methods: {
     toggleDropdown() {
       this.showDropdown = !this.showDropdown;
+    },
+    logout() {
+      // Perform any logout logic here (e.g., clearing tokens, etc.)
+      this.router.push({ name: 'LoginView' }); // Assuming 'Login' is the name of your login route
     },
   },
 };
