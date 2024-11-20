@@ -47,14 +47,50 @@
           <!-- Notifications Dropdown -->
           <div
             v-if="showNotifications"
-            class="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg overflow-hidden z-50"
+            class="absolute right-0 mt-2 w-96 bg-white shadow-lg rounded-lg overflow-hidden z-50 p-4"
           >
-            <ul>
-              <li v-if="unreadNotifications > 0" class="p-4 text-gray-700">
-                You have {{ unreadNotifications }} unread notification(s).
-              </li>
-              <li v-else class="p-4 text-gray-500">No new notifications.</li>
-            </ul>
+            <!-- Notification Header -->
+            <div class="flex justify-between mb-4">
+              <h3 class="font-bold text-lg">Notifications</h3>
+              <button
+                @click="markAllAsRead"
+                class="text-blue-600 hover:underline"
+              >
+                Mark All as Read
+              </button>
+            </div>
+
+            <!-- Notification List -->
+            <div v-if="notifications.length > 0" class="space-y-4">
+              <div
+                v-for="(notification, index) in notifications"
+                :key="index"
+                class="flex items-start space-x-4"
+              >
+                <div>
+                  <!-- Tailwind CSS Heroicons -->
+                  <component
+                    :is="notification.icon"
+                    class="w-8 h-8 text-blue-500"
+                  ></component>
+                </div>
+                <div>
+                  <p class="text-gray-800 font-medium">{{ notification.text }}</p>
+                  <span class="text-sm text-gray-500">{{ notification.time }}</span>
+                </div>
+              </div>
+              <button
+                @click="showAllNotifications"
+                class="text-blue-600 hover:underline mt-4"
+              >
+                Show All Notifications
+              </button>
+            </div>
+
+            <!-- Empty State -->
+            <div v-else class="text-center text-gray-500">
+              No recent notifications here
+            </div>
           </div>
         </div>
       </div>
@@ -90,12 +126,20 @@
           :key="course.id"
           class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
         >
-          <img :src="course.thumbnail" :alt="course.title" class="w-full h-40 object-cover" />
+          <img
+            src="https://via.placeholder.com/150"
+            :alt="course.title"
+            class="w-full h-40 object-cover"
+          />
           <div class="p-4">
             <span class="text-xs font-medium text-blue-600 mb-2 block">{{ course.tag }}</span>
             <h3 class="font-semibold mb-2">{{ course.title }}</h3>
             <div class="flex items-center mb-3">
-              <img :src="course.instructorImage" :alt="course.instructor" class="w-6 h-6 rounded-full mr-2" />
+              <img
+                src="https://via.placeholder.com/40"
+                :alt="course.instructor"
+                class="w-6 h-6 rounded-full mr-2"
+              />
               <span class="text-sm text-gray-600">{{ course.instructor }}</span>
             </div>
             <div class="flex items-center justify-between">
@@ -110,39 +154,63 @@
 </template>
 
 <script>
+import {
+  BellIcon,
+  CalendarIcon,
+  CheckCircleIcon,
+} from "@heroicons/vue/solid"; // Importing icons from Tailwind CSS Heroicons
+
 export default {
   data() {
     return {
       unreadNotifications: 5, // Example unread notifications count
       showNotifications: false, // Toggle notification visibility
+      notifications: [
+        {
+          icon: BellIcon,
+          text: "You have a new assignment due tomorrow.",
+          time: "10 minutes ago",
+        },
+        {
+          icon: CalendarIcon,
+          text: "Class has been rescheduled.",
+          time: "1 hour ago",
+        },
+        {
+          icon: CheckCircleIcon,
+          text: "Your course progress is updated.",
+          time: "2 days ago",
+        },
+      ],
       recentCourses: [
-        // Example courses data
         {
           id: 1,
-          title: 'Web Development',
-          instructor: 'John Doe',
-          instructorImage: '/path/to/image.jpg',
-          thumbnail: '/path/to/thumbnail.jpg',
-          tag: 'Frontend',
-          duration: '3 hours'
+          title: "Web Development",
+          instructor: "John Doe",
+          tag: "Frontend",
+          duration: "3 hours",
         },
         {
           id: 2,
-          title: 'Backend Basics',
-          instructor: 'Jane Smith',
-          instructorImage: '/path/to/image.jpg',
-          thumbnail: '/path/to/thumbnail.jpg',
-          tag: 'Backend',
-          duration: '2 hours'
-        }
-        // Add more courses as needed
-      ]
+          title: "Backend Basics",
+          instructor: "Jane Smith",
+          tag: "Backend",
+          duration: "2 hours",
+        },
+      ],
     };
   },
   methods: {
     toggleNotifications() {
       this.showNotifications = !this.showNotifications;
-    }
-  }
+    },
+    markAllAsRead() {
+      this.notifications = [];
+      this.unreadNotifications = 0;
+    },
+    showAllNotifications() {
+      alert("Navigating to all notifications..."); // Replace with actual routing logic
+    },
+  },
 };
 </script>
