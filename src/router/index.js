@@ -6,7 +6,7 @@ const routes = [
   // Set LoginView as the default route
   {
     path: '/',
-    name: 'Login',
+    name: 'LoginView',
     component: LoginView,
   },
   
