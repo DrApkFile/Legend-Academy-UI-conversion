@@ -29,6 +29,13 @@ const routes = [
     component: () => import('@/views/courses/[id].vue'),
   },
   
+  // Notifications route
+  {
+    path: '/notification',
+    name: 'Notification',
+    component: () => import('@/views/Notification.vue'), // Ensure Notification.vue exists
+  },
+
   // Other routes
   {
     path: '/assignments',
@@ -69,11 +76,6 @@ const routes = [
     path: '/settings',
     name: 'Settings',
     component: () => import('@/views/Settings.vue'),
-  },
-  {
-    path: '/notification',
-    name: 'Notification',
-    component: () => import('@/views/Notification.vue'),
   },
 ];
 
