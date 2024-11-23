@@ -239,10 +239,9 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
-<script setup>
+<script>
 import { ref } from 'vue'
 import { 
   Bell, 
