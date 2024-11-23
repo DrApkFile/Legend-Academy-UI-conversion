@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-50 p-6">
+  <div class="min-h-screen bg-gray-50 p-6 font-source-sans-pro">
     <!-- Search Header -->
     <div class="mb-6">
       <div class="relative">
@@ -26,7 +26,7 @@
             v-for="tab in tabs"
             :key="tab"
             @click="currentTab = tab"
-            :class="[
+            :class="[ 
               'pb-4 px-1 text-sm font-medium border-b-2 transition-colors',
               currentTab === tab
                 ? 'border-orange-500 text-orange-500'
@@ -161,3 +161,11 @@ const medals = [
   }
 ]
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+.font-source-sans-pro {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+</style>

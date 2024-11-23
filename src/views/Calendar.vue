@@ -12,8 +12,7 @@
             :key="view"
             @click="currentView = view"
             class="px-4 py-2 text-sm"
-            :class="currentView === view ? 'bg-orange-500 text-white' : 'text-gray-600'"
-          >
+            :class="currentView === view ? 'bg-orange-500 text-white' : 'text-gray-600'">
             {{ view }}
           </button>
         </div>
@@ -229,3 +228,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+/* Apply the Source Sans Pro font globally */
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.min-h-screen {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+</style>

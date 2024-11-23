@@ -1,13 +1,13 @@
 <template>
-  <div class="min-h-screen bg-gray-50 p-6">
-    <h1 class="text-2xl font-bold mb-6">Performance Overview</h1>
+  <div class="min-h-screen bg-gray-50 p-6 font-source-sans-pro">
+    <h1 class="text-2xl font-bold mb-6 capitalize">Performance Overview</h1>
 
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       <div v-for="(stat, key) in stats" :key="key" 
            class="bg-white rounded-xl p-6 shadow-sm">
-        <h3 class="text-gray-500 text-sm mb-2">{{ key }}</h3>
-        <p class="text-3xl font-bold">{{ stat }}</p>
+        <h3 class="text-gray-500 text-sm mb-2 capitalize">{{ key }}</h3>
+        <p class="text-3xl font-bold capitalize">{{ stat }}</p>
       </div>
     </div>
 
@@ -16,7 +16,7 @@
       <div class="lg:col-span-2 space-y-6">
         <!-- Performance Breakdown -->
         <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h2 class="text-lg font-semibold mb-4">Performance Breakdown</h2>
+          <h2 class="text-lg font-semibold mb-4 capitalize">Performance Breakdown</h2>
           <div class="space-y-4">
             <div v-for="module in modulePerformance" :key="module.name" class="space-y-2">
               <div class="flex items-center justify-between text-sm">
@@ -42,11 +42,11 @@
 
         <!-- Overall Performance -->
         <div class="bg-white rounded-xl p-6 shadow-sm">
-          <h2 class="text-lg font-semibold mb-4">Overall Performance</h2>
+          <h2 class="text-lg font-semibold mb-4 capitalize">Overall Performance</h2>
           <div class="space-y-4">
             <div v-for="metric in performanceMetrics" :key="metric.label" 
                  class="flex items-center justify-between">
-              <span class="text-sm">{{ metric.label }}</span>
+              <span class="text-sm capitalize">{{ metric.label }}</span>
               <div class="flex items-center">
                 <TrendingUpIcon v-if="metric.trend === 'up'" 
                               class="w-4 h-4 text-green-500 mr-2" />
@@ -57,7 +57,7 @@
             </div>
           </div>
           <button class="w-full mt-4 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors">
-            See all results
+            See All Results
           </button>
         </div>
 
@@ -65,15 +65,15 @@
         <div class="bg-white rounded-xl shadow-sm overflow-hidden">
           <div class="p-6 border-b border-gray-200">
             <div class="flex justify-between items-center">
-              <h2 class="text-lg font-semibold">Test Results</h2>
+              <h2 class="text-lg font-semibold capitalize">Test Results</h2>
               <div class="flex items-center space-x-2">
                 <input 
                   type="search"
-                  placeholder="Search tests..."
+                  placeholder="Search Tests..."
                   class="px-3 py-1 text-sm border rounded-md"
                 />
                 <select class="px-3 py-1 text-sm border rounded-md">
-                  <option>Show results: All</option>
+                  <option>Show Results: All</option>
                   <option>Passed Only</option>
                   <option>Failed Only</option>
                 </select>
@@ -122,7 +122,7 @@
                     {{ result.wrong }}
                   </td>
                   <td class="px-6 py-4 whitespace-nowrap">
-                    <span :class="[
+                    <span :class="[ 
                       'px-2 py-1 text-xs font-medium rounded-full',
                       result.result === 'pass' 
                         ? 'bg-green-100 text-green-800' 
@@ -138,7 +138,7 @@
           <div class="px-6 py-4 border-t border-gray-200">
             <div class="flex items-center justify-between">
               <div class="text-sm text-gray-500">
-                Showing 1 to 10 of 20 results
+                Showing 1 to 10 of 20 Results
               </div>
               <div class="flex gap-2">
                 <button class="px-3 py-1 text-sm border rounded-md hover:bg-gray-50">
@@ -158,8 +158,8 @@
         <div class="bg-white rounded-xl p-6 shadow-sm">
           <div class="flex flex-col items-center">
             <img src="https://placehold.co/64" alt="Profile" class="w-16 h-16 rounded-full mb-4" />
-            <h3 class="font-semibold">Chioma Favour</h3>
-            <p class="text-sm text-gray-600">Student</p>
+            <h3 class="font-semibold capitalize">Chioma Favour</h3>
+            <p class="text-sm text-gray-600 capitalize">Student</p>
           </div>
           <div class="grid grid-cols-3 gap-4 mt-6">
             <div class="text-center">
@@ -193,48 +193,29 @@ const stats = ref<PerformanceStats>({
 })
 
 const modulePerformance = ref<ModulePerformance[]>([
-  { name: 'UI/UX', module1Score: 75, module2Score: 85 },
-  { name: 'UI/UI', module1Score: 65, module2Score: 70 },
-  { name: 'Front-End', module1Score: 20, module2Score: 30 },
-  { name: 'Web', module1Score: 90, module2Score: 95 },
-  { name: 'AI', module1Score: 60, module2Score: 80 }
+  { name: 'Mathematics', module1Score: 70, module2Score: 85 },
+  { name: 'Physics', module1Score: 78, module2Score: 83 },
 ])
 
 const performanceMetrics = ref<PerformanceMetric[]>([
-  { label: 'Weekly tests', percentage: 90, trend: 'up' },
-  { label: 'Questionnaires', percentage: 65, trend: 'up' },
-  { label: 'Monthly tests', percentage: 28, trend: 'down' },
-  { label: 'Quizzes', percentage: 29, trend: 'down' },
-  { label: 'Exams', percentage: 29, trend: 'down' }
+  { label: 'Test Score', percentage: 80, trend: 'up' },
+  { label: 'Course Completion', percentage: 75, trend: 'down' }
 ])
 
 const testResults = ref<TestResult[]>([
-  {
-    id: '1',
-    test: 'Introduction to UI/UX',
-    mark: '92/100',
-    questionsAttempted: 100,
-    correct: 92,
-    wrong: 8,
-    result: 'pass'
-  },
-  {
-    id: '2',
-    test: 'Color Psychology',
-    mark: '72/100',
-    questionsAttempted: 80,
-    correct: 72,
-    wrong: 8,
-    result: 'pass'
-  },
-  {
-    id: '3',
-    test: 'Color Psychology',
-    mark: '72/100',
-    questionsAttempted: 100,
-    correct: 72,
-    wrong: 28,
-    result: 'failed'
-  }
+  { id: 1, test: 'Math Exam', mark: 75, questionsAttempted: 50, correct: 40, wrong: 10, result: 'pass' },
+  { id: 2, test: 'Physics Exam', mark: 85, questionsAttempted: 50, correct: 45, wrong: 5, result: 'pass' }
 ])
 </script>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600&display=swap');
+
+.font-source-sans-pro {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+</style>

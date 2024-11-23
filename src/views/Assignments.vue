@@ -12,19 +12,19 @@
         :key="tab.id"
         @click="activeTab = tab.id"
         class="px-4 py-2 -mb-px text-sm font-medium transition-colors relative"
-        :class="[
+        :class="[ 
           activeTab === tab.id 
             ? 'text-blue-600 border-b-2 border-blue-600' 
-            : 'text-gray-600 hover:text-gray-900'
+            : 'text-gray-600 hover:text-gray-900' 
         ]"
       >
         {{ tab.name }}
         <span 
           class="ml-2 px-2 py-0.5 text-xs rounded-full"
-          :class="[
+          :class="[ 
             activeTab === tab.id 
               ? 'bg-blue-100 text-blue-600' 
-              : 'bg-gray-100 text-gray-600'
+              : 'bg-gray-100 text-gray-600' 
           ]"
         >
           {{ getAssignmentsByStatus(tab.id).length }}
@@ -70,10 +70,10 @@
           <button 
             @click="completeAssignment(assignment.id)"
             class="w-full px-4 py-2 text-sm font-medium rounded-lg transition-colors"
-            :class="[
-              assignment.status === 'completed'
-                ? 'bg-green-100 text-green-600'
-                : 'bg-blue-600 text-white hover:bg-blue-700'
+            :class="[ 
+              assignment.status === 'completed' 
+                ? 'bg-green-100 text-green-600' 
+                : 'bg-blue-600 text-white hover:bg-blue-700' 
             ]"
           >
             {{ assignment.status === 'completed' ? 'Completed' : 'Complete →' }}
@@ -224,9 +224,19 @@ const getEmptyStateMessage = (status: string) => {
 }
 
 const completeAssignment = (id: string) => {
-  const assignment = assignments.value.find(a => a.id === id)
-  if (assignment && assignment.status !== 'completed') {
+  const assignment = assignments.value.find(assignment => assignment.id === id)
+  if (assignment) {
     assignment.status = 'completed'
   }
 }
 </script>
+
+<style scoped>
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.min-h-screen {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+</style>
