@@ -5,14 +5,14 @@ import LoginView from '../views/LoginView.vue'; // Import LoginView
 const routes = [
   // Login route
   {
-    path: '/login',
+    path: '/',
     name: 'Login',
     component: LoginView,
   },
   
   // Dashboard route
   {
-    path: '/',
+    path: '/dashboard',
     name: 'Dashboard',
     component: Dashboard,
   },
