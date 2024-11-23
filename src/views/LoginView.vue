@@ -11,11 +11,11 @@
         <div class="max-w-md mx-auto w-full">
           <!-- Logo -->
           <div class="mb-12 text-center">
-            <h1 class="text-4xl font-extrabold text-gray-800">
-              <span class="text-orange-500">L</span>
-              <span class="text-orange-500">E</span>
-              <span class="text-gray-800">GEND</span>
-              <div class="text-sm font-normal mt-2 text-gray-600">Academy</div>
+            <h1 class="text-6xl font-bold leading-tight text-orange-500 tracking-tight uppercase">
+              Legend
+              <span class="block text-2xl text-gray-600 mt-2 font-light tracking-normal uppercase">
+                Academy
+              </span>
             </h1>
           </div>
 
