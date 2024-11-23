@@ -7,9 +7,9 @@
         <div class="mb-12">
           <h1 class="text-2xl font-bold">
             <span>L</span>
-            <span class="text-[#FF4500]">=</span>
+            <span class="text-orange-500">=</span>
             <span>G</span>
-            <span class="text-[#FF4500]">=</span>
+            <span class="text-orange-500">=</span>
             <span>ND</span>
             <div class="text-sm font-normal mt-1">Academy</div>
           </h1>
@@ -26,7 +26,7 @@
                 type="email" 
                 v-model="email"
                 placeholder="name@domain.com"
-                class="w-full px-3 py-2 border border-gray-200 rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF4500]"
+                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
               />
             </div>
 
@@ -36,7 +36,7 @@
                 <input 
                   :type="showPassword ? 'text' : 'password'"
                   v-model="password"
-                  class="w-full px-3 py-2 border border-gray-200 rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF4500]"
+                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
                 />
                 <button 
                   @click="showPassword = !showPassword"
@@ -54,14 +54,14 @@
                 type="checkbox" 
                 id="remember" 
                 v-model="rememberMe"
-                class="rounded-none border-gray-200 text-[#FF4500] focus:ring-[#FF4500]"
+                class="rounded border-gray-300 text-orange-500 focus:ring-orange-500"
               />
               <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
             </div>
 
             <button 
               type="submit"
-              class="w-full bg-[#FF4500] text-white py-2 hover:bg-[#FF4500]/90 transition-colors"
+              class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition-colors"
             >
               Login
             </button>
@@ -76,8 +76,8 @@
     </div>
 
     <!-- Right Side - Welcome Banner -->
-    <div class="w-1/2 bg-[#FF4500] relative overflow-hidden">
-      <div class="absolute inset-0 bg-black/50 z-10"></div>
+    <div class="w-1/2 bg-orange-500 relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 z-10"></div>
       <img
         src="/placeholder.svg?height=800&width=600"
         alt="Student"
@@ -88,7 +88,7 @@
         <p class="mb-6">
           Lorem ipsum is a dummy text used as a place holder before the actual information is inputted. Don't bother reading this. Why are you still reading?
         </p>
-        <button class="text-white border border-white px-6 py-2 inline-flex items-center hover:bg-white/10 transition-colors w-fit">
+        <button class="text-white border border-white px-6 py-2 rounded-md inline-flex items-center hover:bg-white/10 transition-colors w-fit">
           Read more
         </button>
       </div>
