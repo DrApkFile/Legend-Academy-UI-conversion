@@ -5,17 +5,19 @@
     <div class="absolute inset-0 right-0 bg-orange-500 z-0 border-l-4 border-white"></div>
 
     <!-- Content -->
-    <div class="relative z-10 flex w-10/12 max-w-6xl shadow-lg">
+    <div class="relative z-10 flex w-11/12 max-w-5xl shadow-lg">
       <!-- Left Side - Login Form -->
       <div class="w-[45%] bg-white p-8 flex flex-col justify-between rounded-l-lg">
         <div class="max-w-md mx-auto w-full">
           <!-- Logo -->
           <div class="mb-12 text-center">
-            <h1 class="text-6xl font-bold leading-tight text-orange-500 tracking-tight uppercase">
-              Legend
-              <span class="block text-2xl text-gray-600 mt-2 font-light tracking-normal uppercase">
-                Academy
-              </span>
+            <h1 class="text-2xl font-bold">
+              <span>L</span>
+              <span class="text-orange-500">=</span>
+              <span>G</span>
+              <span class="text-orange-500">=</span>
+              <span>ND</span>
+              <div class="text-sm font-normal mt-1">Academy</div>
             </h1>
           </div>
 
@@ -87,7 +89,7 @@
           class="absolute inset-0 w-full h-full object-cover"
         />
         <div class="relative z-20 p-12 text-white h-full flex flex-col justify-center">
-          <h2 class="text-4xl font-bold mb-4">Welcome to Legend Academy</h2>
+          <h2 class="text-4xl font-bold mb-4 underline">Welcome to Legend Academy</h2>
           <p class="mb-6 text-lg">
             Lorem ipsum is a dummy text used as a placeholder before the actual information is inputted. Don't bother reading this. Why are you still reading?
           </p>
@@ -103,22 +105,35 @@
 <script setup>
 import { ref } from 'vue';
 import { Eye, EyeOff } from 'lucide-vue-next';
+import { useRouter } from 'vue-router'; // Import useRouter
 
 const email = ref('');
 const password = ref('');
 const rememberMe = ref(false);
 const showPassword = ref(false);
 
+const router = useRouter(); // Initialize router
+
 const handleLogin = () => {
+  // Add validation or API call here
   console.log({
     email: email.value,
     password: password.value,
     rememberMe: rememberMe.value,
   });
+
+  // Navigate to the dashboard page
+  router.push('/dashboard'); // Assumes route is defined
 };
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 @media (max-width: 768px) {
   .min-h-screen {
     flex-direction: column;
