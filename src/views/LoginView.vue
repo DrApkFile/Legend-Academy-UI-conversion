@@ -4,20 +4,18 @@
     <div class="w-1/2 bg-white p-8 flex flex-col justify-between">
       <div class="max-w-md mx-auto w-full pt-16">
         <!-- Logo -->
-        <div class="mb-12">
-          <h1 class="text-2xl font-bold">
-            <span>L</span>
-            <span class="text-orange-500">=</span>
-            <span>G</span>
-            <span class="text-orange-500">=</span>
-            <span>ND</span>
-            <div class="text-sm font-normal mt-1">Academy</div>
+        <div class="mb-12 text-center">
+          <h1 class="text-3xl font-bold text-gray-800">
+            <span class="text-orange-500">L</span>
+            <span class="text-orange-500">E</span>
+            <span class="text-gray-800">GEND</span>
+            <div class="text-sm font-normal mt-2 text-gray-600">Academy</div>
           </h1>
         </div>
 
         <!-- Login Form -->
         <div>
-          <h2 class="text-sm mb-8">Enter your credentials below</h2>
+          <h2 class="text-lg mb-8 text-gray-700 font-semibold">Enter your credentials below</h2>
           
           <form @submit.prevent="handleLogin" class="space-y-4">
             <div class="space-y-2">
@@ -26,7 +24,7 @@
                 type="email" 
                 v-model="email"
                 placeholder="name@domain.com"
-                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
+                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 
@@ -36,7 +34,7 @@
                 <input 
                   :type="showPassword ? 'text' : 'password'"
                   v-model="password"
-                  class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500"
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
                 <button 
                   @click="showPassword = !showPassword"
@@ -61,7 +59,7 @@
 
             <button 
               type="submit"
-              class="w-full bg-orange-500 text-white py-2 rounded-md hover:bg-orange-600 transition-colors"
+              class="w-full bg-orange-500 text-white py-3 rounded-md hover:bg-orange-600 transition-colors"
             >
               Login
             </button>
@@ -70,7 +68,7 @@
       </div>
 
       <!-- Footer -->
-      <div class="text-center text-sm text-gray-500">
+      <div class="text-center text-sm text-gray-500 mt-12">
         © 2024 Legend PLC. All rights reserved
       </div>
     </div>
@@ -85,7 +83,7 @@
       />
       <div class="relative z-20 p-12 text-white h-full flex flex-col justify-center">
         <h2 class="text-4xl font-bold mb-4">Welcome to Legend Academy</h2>
-        <p class="mb-6">
+        <p class="mb-6 text-lg">
           Lorem ipsum is a dummy text used as a place holder before the actual information is inputted. Don't bother reading this. Why are you still reading?
         </p>
         <button class="text-white border border-white px-6 py-2 rounded-md inline-flex items-center hover:bg-white/10 transition-colors w-fit">
@@ -114,3 +112,16 @@ const handleLogin = () => {
   })
 }
 </script>
+
+<style scoped>
+/* Additional Styling for Responsive Design */
+@media (max-width: 768px) {
+  .min-h-screen {
+    flex-direction: column;
+  }
+  
+  .w-1/2 {
+    width: 100%;
+  }
+}
+</style>
