@@ -79,7 +79,7 @@
     <div class="w-1/2 bg-orange-500 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 z-10"></div>
       <img
-        src="/placeholder.svg?height=800&width=600"
+        src="https://placehold.co/80"
         alt="Student"
         class="absolute inset-0 w-full h-full object-cover"
       />
