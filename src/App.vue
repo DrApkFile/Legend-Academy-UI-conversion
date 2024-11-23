@@ -2,14 +2,14 @@
   <div id="app" class="flex h-screen">
     <!-- Left Sidebar -->
     <aside v-if="!$route.name.includes('Login')" class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
-       <div class="mb-12 text-center bg-transparent">
-        <h1 class="text-2xl font-bold">
-          <span>L</span>
+       <div class="mb-12 text-center">
+        <h1 class="text-2xl font-bold bg-gradient-to-r from-white to-gray-100 inline-block px-4 py-2 rounded-lg">
+          <span class="text-white">L</span>
           <span class="text-orange-500">=</span>
-          <span>G</span>
+          <span class="text-white">G</span>
           <span class="text-orange-500">=</span>
-          <span>ND</span>
-          <div class="text-sm font-normal mt-1">Academy</div>
+          <span class="text-white">ND</span>
+          <div class="text-sm font-normal mt-1 text-gray-200">Academy</div>
         </h1>
       </div>
       <nav class="space-y-2">
@@ -26,7 +26,7 @@
       </nav>
     </aside>
 
-    <!-- Main Content -->
+    <!-- Rest of the template remains unchanged -->
     <main class="flex-grow bg-gray-50 p-8">
       <div class="flex justify-between">
         <!-- Main Section -->
@@ -102,9 +102,9 @@
               <div class="h-32 flex items-end gap-2">
                 <div v-for="(height, day) in hoursSpent" :key="day" 
                      class="flex-1 bg-orange-100 rounded-t-lg relative"
-                     :style="{ height: `${height}%` }">
+                     :style="{ height: ${height}% }">
                   <div class="absolute inset-x-0 bottom-0 bg-orange-500 rounded-t-lg" 
-                       :style="{ height: `${height}%` }"></div>
+                       :style="{ height: ${height}% }"></div>
                 </div>
               </div>
               <div class="flex justify-between text-xs text-gray-500">
@@ -126,7 +126,7 @@
                     <span>{{ progress }}%</span>
                   </div>
                   <div class="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                    <div class="h-full bg-orange-500 rounded-full" :style="{ width: `${progress}%` }"></div>
+                    <div class="h-full bg-orange-500 rounded-full" :style="{ width: ${progress}% }"></div>
                   </div>
                 </div>
               </div>
