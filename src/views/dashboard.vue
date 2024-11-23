@@ -133,10 +133,130 @@
       </div>
     </div>
   </div>
+  <div class="bg-white rounded-xl p-6 shadow-sm">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-lg font-semibold">Recent enrolled classes</h2>
+        <div class="flex items-center space-x-4">
+          <button class="text-sm text-gray-600 hover:text-gray-900">All</button>
+          <button class="p-2 hover:bg-gray-100 rounded-full">
+            <Search class="w-4 h-4 text-gray-600" />
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Enrolled Classes -->
+        <div class="space-y-4">
+          <!-- UX Design Class -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                <Pen class="w-6 h-6 text-purple-600" />
+              </div>
+              <div class="flex-1">
+                <h3 class="font-medium">User Experience (UX) Design</h3>
+                <div class="flex items-center gap-4 mt-2 text-sm text-gray-600">
+                  <div class="flex items-center gap-1">
+                    <Clock class="w-4 h-4" />
+                    <span>5.5 hrs</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <Users class="w-4 h-4" />
+                    <span>10 students</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <FileText class="w-4 h-4" />
+                    <span>Assignments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Visual Design Class -->
+          <div class="bg-gray-50 rounded-xl p-4">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <Palette class="w-6 h-6 text-blue-600" />
+              </div>
+              <div class="flex-1">
+                <h3 class="font-medium">Visual Design and Branding</h3>
+                <div class="flex items-center gap-4 mt-2 text-sm text-gray-600">
+                  <div class="flex items-center gap-1">
+                    <Clock class="w-4 h-4" />
+                    <span>4.5 hrs</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <Users class="w-4 h-4" />
+                    <span>15 students</span>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <FileText class="w-4 h-4" />
+                    <span>Assignments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upcoming Lessons -->
+        <div class="bg-gray-50 rounded-xl p-6">
+          <h3 class="font-medium mb-4">Upcoming Lesson</h3>
+          <div class="space-y-4">
+            <!-- UX Design Fundamentals -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                  <Monitor class="w-5 h-5 text-gray-600" />
+                </div>
+                <div>
+                  <h4 class="font-medium">UX Design Fundamentals</h4>
+                  <p class="text-sm text-gray-500">5:30pm</p>
+                </div>
+              </div>
+              <button class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm hover:bg-orange-600 transition-colors">
+                Join
+              </button>
+            </div>
+
+            <!-- Interaction Design -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center">
+                  <MousePointer class="w-5 h-5 text-gray-600" />
+                </div>
+                <div>
+                  <h4 class="font-medium">Interaction Design</h4>
+                  <p class="text-sm text-gray-500">6:00pm</p>
+                </div>
+              </div>
+              <button class="bg-orange-500 text-white px-4 py-1 rounded-full text-sm hover:bg-orange-600 transition-colors">
+                Join
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
-<script>
-import { Bell, MessageCircle, BookOpen } from 'lucide-vue-next'
+<script setup>
+import { ref } from 'vue'
+import { 
+  Bell, 
+  MessageCircle, 
+  BookOpen, 
+  Search, 
+  Clock, 
+  Users, 
+  FileText, 
+  Pen, 
+  Palette, 
+  Monitor, 
+  MousePointer 
+} from 'lucide-vue-next'
 
 export default {
   data() {
