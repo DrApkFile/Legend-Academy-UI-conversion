@@ -5,7 +5,7 @@
       <div class="max-w-md mx-auto w-full pt-16">
         <!-- Logo -->
         <div class="mb-12 text-center">
-          <h1 class="text-3xl font-bold text-gray-800">
+          <h1 class="text-4xl font-extrabold text-gray-800">
             <span class="text-orange-500">L</span>
             <span class="text-orange-500">E</span>
             <span class="text-gray-800">GEND</span>
@@ -15,7 +15,7 @@
 
         <!-- Login Form -->
         <div>
-          <h2 class="text-lg mb-8 text-gray-700 font-semibold">Enter your credentials below</h2>
+          <h2 class="text-xl mb-8 text-gray-700 font-semibold">Enter your credentials below</h2>
           
           <form @submit.prevent="handleLogin" class="space-y-4">
             <div class="space-y-2">
@@ -59,7 +59,7 @@
 
             <button 
               type="submit"
-              class="w-full bg-orange-500 text-white py-3 rounded-md hover:bg-orange-600 transition-colors"
+              class="w-full bg-orange-500 text-white py-3 rounded-md hover:bg-orange-600 shadow-md transition-colors"
             >
               Login
             </button>
@@ -84,7 +84,7 @@
       <div class="relative z-20 p-12 text-white h-full flex flex-col justify-center">
         <h2 class="text-4xl font-bold mb-4">Welcome to Legend Academy</h2>
         <p class="mb-6 text-lg">
-          Lorem ipsum is a dummy text used as a place holder before the actual information is inputted. Don't bother reading this. Why are you still reading?
+          Lorem ipsum is a dummy text used as a placeholder before the actual information is inputted. Don't bother reading this. Why are you still reading?
         </p>
         <button class="text-white border border-white px-6 py-2 rounded-md inline-flex items-center hover:bg-white/10 transition-colors w-fit">
           Read more
@@ -123,5 +123,15 @@ const handleLogin = () => {
   .w-1/2 {
     width: 100%;
   }
+}
+
+/* Make the login button more rounded with a shadow */
+button {
+  border-radius: 10px;
+}
+
+/* Add a subtle drop shadow to the right banner */
+.bg-orange-500 img {
+  filter: brightness(0.7);
 }
 </style>
