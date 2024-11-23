@@ -2,10 +2,16 @@
   <div id="app" class="flex h-screen">
     <!-- Left Sidebar -->
     <aside v-if="!$route.name.includes('Login')" class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
-      <div class="flex items-center mb-8">
-        <h1 class="text-xl font-bold text-white">Legend Academy</h1>
-      </div>
-
+       <div class="mb-12 text-center">
+            <h1 class="text-2xl font-bold">
+              <span>L</span>
+              <span class="text-orange-500">=</span>
+              <span>G</span>
+              <span class="text-orange-500">=</span>
+              <span>ND</span>
+              <div class="text-sm font-normal mt-1">Academy</div>
+            </h1>
+          </div>
       <nav class="space-y-2">
         <router-link
           v-for="item in navigationItems"

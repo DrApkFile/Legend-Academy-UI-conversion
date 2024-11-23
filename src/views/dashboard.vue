@@ -70,7 +70,8 @@
                 </li>
               </ul>
               <div class="p-4 text-center">
-                <button class="text-blue-600 hover:underline">Show all notifications</button>
+                <!-- Add Vue Router Link to navigate to the notifications page -->
+                <router-link to="/notificationpage/" class="text-blue-600 hover:underline">Show all notifications</router-link>
               </div>
             </div>
             <div v-else class="p-4 text-center text-gray-500">
