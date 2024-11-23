@@ -105,25 +105,18 @@
 <script setup>
 import { ref } from 'vue';
 import { Eye, EyeOff } from 'lucide-vue-next';
-import { useRouter } from 'vue-router'; // Import useRouter
 
 const email = ref('');
 const password = ref('');
 const rememberMe = ref(false);
 const showPassword = ref(false);
 
-const router = useRouter(); // Initialize router
-
 const handleLogin = () => {
-  // Add validation or API call here
   console.log({
     email: email.value,
     password: password.value,
     rememberMe: rememberMe.value,
   });
-
-  // Navigate to the dashboard page
-  router.push('/dashboard'); // Assumes route is defined
 };
 </script>
 

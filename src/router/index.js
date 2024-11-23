@@ -1,85 +1,81 @@
-import { createRouter, createWebHistory } from 'vue-router';
-import Dashboard from '../views/dashboard.vue';
-import LoginView from '../views/LoginView.vue'; // Import LoginView
+import { createRouter, createWebHistory } from 'vue-router'
+import Dashboard from '../views/dashboard.vue'
+import LoginView from '../views/LoginView.vue'  // Import LoginView
 
 const routes = [
   // Login route
   {
-    path: '/',
-    name: 'Login',
+    path: '/login',
+    name: 'LoginView',
     component: LoginView,
-  },
-  
-  // Dashboard route
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: Dashboard,
-  },
-  
-  // Courses routes
-  {
-    path: '/courses',
-    name: 'Courses',
-    component: () => import('@/views/courses/index.vue'),
-  },
-  {
-    path: '/courses/:id',
-    name: 'CourseDetail',
-    component: () => import('@/views/courses/[id].vue'),
   },
   
   // Other routes
   {
+    path: '/',
+    name: 'Dashboard',
+    component: Dashboard
+  },
+  {
+    path: '/courses',
+    name: 'Courses',
+    component: () => import('@/views/courses/index.vue')
+  },
+  {
+    path: '/courses/:id',
+    name: 'CourseDetail',
+    component: () => import('@/views/courses/[id].vue')
+  },
+  {
     path: '/assignments',
     name: 'Assignments',
-    component: () => import('@/views/Assignments.vue'),
+    component: () => import('@/views/Assignments.vue')
   },
   {
     path: '/calendar',
     name: 'Calendar',
-    component: () => import('@/views/Calendar.vue'),
+    component: () => import('@/views/Calendar.vue')
   },
   {
     path: '/discussions',
     name: 'Discussions',
-    component: () => import('@/views/Discussions.vue'),
+    component: () => import('@/views/Discussions.vue')
   },
   {
     path: '/performance-overview',
     name: 'Performance',
-    component: () => import('@/views/PerformanceOverview.vue'),
+    component: () => import('@/views/PerformanceOverview.vue')
   },
   {
     path: '/resources',
     name: 'Resources',
-    component: () => import('@/views/Resources.vue'),
+    component: () => import('@/views/Calendar.vue')
   },
   {
     path: '/achievements',
     name: 'Achievements',
-    component: () => import('@/views/Achievements.vue'),
+    component: () => import('@/views/Achievements.vue')
   },
   {
     path: '/support',
     name: 'Support',
-    component: () => import('@/views/Support.vue'),
+    component: () => import('@/views/Support.vue')
   },
   {
     path: '/settings',
     name: 'Settings',
-    component: () => import('@/views/Settings.vue'),
+    component: () => import('@/views/Settings.vue')
   },
   {
     path: '/notification',
     name: 'Notification',
-    component: () => import('@/views/Notification.vue'),
-  },
-];
+    component: () => import('@/views/Calendar.vue')
+  }
+]
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router
