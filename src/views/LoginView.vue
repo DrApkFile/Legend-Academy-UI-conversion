@@ -77,7 +77,7 @@
     <div class="w-1/2 bg-orange-500 relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/60 z-10"></div>
       <img
-        src="https://placehold.co/80"
+        src="@/assets/background.jpg"
         alt="Student"
         class="absolute inset-0 w-full h-full object-cover"
       />
@@ -95,43 +95,44 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { Eye, EyeOff } from 'lucide-vue-next'
+import { ref } from 'vue';
+import { Eye, EyeOff } from 'lucide-vue-next';
 
-const email = ref('')
-const password = ref('')
-const rememberMe = ref(false)
-const showPassword = ref(false)
+const email = ref('');
+const password = ref('');
+const rememberMe = ref(false);
+const showPassword = ref(false);
 
 const handleLogin = () => {
   // Handle login logic here
   console.log({
     email: email.value,
     password: password.value,
-    rememberMe: rememberMe.value
-  })
-}
+    rememberMe: rememberMe.value,
+  });
+};
 </script>
 
-<style scoped>
+<style>
 /* Additional Styling for Responsive Design */
+/* Ensure proper syntax for media queries and styles */
 @media (max-width: 768px) {
   .min-h-screen {
     flex-direction: column;
   }
-  
+
   .w-1/2 {
     width: 100%;
   }
 }
 
-/* Make the login button more rounded with a shadow */
+/* Additional global styles */
 button {
   border-radius: 10px;
 }
 
-/* Add a subtle drop shadow to the right banner */
 .bg-orange-500 img {
   filter: brightness(0.7);
 }
+
 </style>
