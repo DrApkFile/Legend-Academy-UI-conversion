@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="flex h-screen">
     <!-- Left Sidebar (from previous code) -->
-    <aside v-if="isLoggedIn" class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
+    <aside v-if="isLoggedIn && !$route.name.includes('Login')" class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
       <div class="flex items-center mb-8">
         <h1 class="text-xl font-bold text-white">Legend Academy</h1>
       </div>
@@ -29,7 +29,7 @@
         </section>
 
         <!-- Updated Profile Section with More Details -->
-        <section v-if="isLoggedIn" class="w-72 bg-white rounded-xl shadow-sm">
+        <section v-if="isLoggedIn && !$route.name.includes('Login')" class="w-72 bg-white rounded-xl shadow-sm">
           <div class="p-4 border-b flex items-center justify-between">
             <span class="text-sm font-medium">Your Profile</span>
             <div class="relative">
