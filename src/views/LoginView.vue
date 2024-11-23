@@ -104,7 +104,10 @@
 
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { Eye, EyeOff } from 'lucide-vue-next';
+
+const router = useRouter(); // Use the router instance
 
 const email = ref('');
 const password = ref('');
@@ -117,25 +120,8 @@ const handleLogin = () => {
     password: password.value,
     rememberMe: rememberMe.value,
   });
+
+  // Navigate to the dashboard page
+  router.push('/dashboard');
 };
 </script>
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
-
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-@media (max-width: 768px) {
-  .min-h-screen {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-
-  .w-[45%],
-  .w-[55%] {
-    width: 100%;
-  }
-}
-</style>
