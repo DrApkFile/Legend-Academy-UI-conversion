@@ -26,7 +26,7 @@
       </nav>
     </aside>
 
-    <!-- Rest of the template remains unchanged -->
+    <!-- Main Content -->
     <main class="flex-grow bg-gray-50 p-8">
       <div class="flex justify-between">
         <!-- Main Section -->
@@ -102,9 +102,9 @@
               <div class="h-32 flex items-end gap-2">
                 <div v-for="(height, day) in hoursSpent" :key="day" 
                      class="flex-1 bg-orange-100 rounded-t-lg relative"
-                     :style="{ height: ${height}% }">
+                     :style="{ height: height + '%' }">
                   <div class="absolute inset-x-0 bottom-0 bg-orange-500 rounded-t-lg" 
-                       :style="{ height: ${height}% }"></div>
+                       :style="{ height: height + '%' }"></div>
                 </div>
               </div>
               <div class="flex justify-between text-xs text-gray-500">
@@ -126,7 +126,7 @@
                     <span>{{ progress }}%</span>
                   </div>
                   <div class="h-1.5 bg-gray-200 rounded-full overflow-hidden">
-                    <div class="h-full bg-orange-500 rounded-full" :style="{ width: ${progress}% }"></div>
+                    <div class="h-full bg-orange-500 rounded-full" :style="{ width: progress + '%' }"></div>
                   </div>
                 </div>
               </div>
@@ -175,9 +175,19 @@ import {
 export default {
   name: "App",
   components: {
+    LayoutDashboard,
+    GraduationCap,
+    ClipboardList,
+    Calendar,
+    MessageSquare,
+    FileText,
+    Trophy,
+    HelpCircle,
+    Settings,
+    Bell,
+    Gauge,
     MoreVertical,
     User,
-    GraduationCap,
     UserCircle,
     LogOut,
   },
