@@ -1,61 +1,96 @@
-<!-- src/views/LoginView.vue -->
 <template>
-  <div class="login-container">
-    <!-- Left Section - Login Form -->
-    <div class="login-form-section">
-      <div class="login-form-container">
-        <div class="logo-container">
-          <img src="@/assets/la.png" alt="Legend Academy" class="logo" />
+  <div class="min-h-screen flex">
+    <!-- Left Side - Login Form -->
+    <div class="w-1/2 bg-white p-8 flex flex-col justify-between">
+      <div class="max-w-md mx-auto w-full pt-16">
+        <!-- Logo -->
+        <div class="mb-12">
+          <h1 class="text-2xl font-bold">
+            <span>L</span>
+            <span class="text-[#FF4500]">=</span>
+            <span>G</span>
+            <span class="text-[#FF4500]">=</span>
+            <span>ND</span>
+            <div class="text-sm font-normal mt-1">Academy</div>
+          </h1>
         </div>
-        
-        <form @submit.prevent="handleLogin" class="login-form">
-          <div class="form-group">
-            <label for="email">Enter your credentials below</label>
-            <input 
-              type="email" 
-              id="email"
-              v-model="email"
-              placeholder="Email"
-              class="form-input"
-            />
-          </div>
+
+        <!-- Login Form -->
+        <div>
+          <h2 class="text-sm mb-8">Enter your credentials below</h2>
           
-          <div class="form-group">
-            <input 
-              type="password" 
-              id="password"
-              v-model="password"
-              placeholder="Password"
-              class="form-input"
-            />
-          </div>
-          
-          <div class="remember-me">
-            <input 
-              type="checkbox" 
-              id="remember"
-              v-model="rememberMe"
-            />
-            <label for="remember">Remember me</label>
-          </div>
-          
-          <button type="submit" class="login-button">
-            Login
-          </button>
-        </form>
-        
-        <div class="footer">
-          <p>© 2024 Legend Academy. All rights reserved</p>
+          <form @submit.prevent="handleLogin" class="space-y-4">
+            <div class="space-y-2">
+              <label class="block text-sm text-gray-600">Email</label>
+              <input 
+                type="email" 
+                v-model="email"
+                placeholder="name@domain.com"
+                class="w-full px-3 py-2 border border-gray-200 rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF4500]"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label class="block text-sm text-gray-600">Password</label>
+              <div class="relative">
+                <input 
+                  :type="showPassword ? 'text' : 'password'"
+                  v-model="password"
+                  class="w-full px-3 py-2 border border-gray-200 rounded-none focus:outline-none focus:ring-1 focus:ring-[#FF4500]"
+                />
+                <button 
+                  @click="showPassword = !showPassword"
+                  type="button"
+                  class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                >
+                  <Eye v-if="!showPassword" class="w-4 h-4" />
+                  <EyeOff v-else class="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            <div class="flex items-center">
+              <input 
+                type="checkbox" 
+                id="remember" 
+                v-model="rememberMe"
+                class="rounded-none border-gray-200 text-[#FF4500] focus:ring-[#FF4500]"
+              />
+              <label for="remember" class="ml-2 text-sm text-gray-600">Remember me</label>
+            </div>
+
+            <button 
+              type="submit"
+              class="w-full bg-[#FF4500] text-white py-2 hover:bg-[#FF4500]/90 transition-colors"
+            >
+              Login
+            </button>
+          </form>
         </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="text-center text-sm text-gray-500">
+        © 2024 Legend PLC. All rights reserved
       </div>
     </div>
 
-    <!-- Right Section - Welcome Message -->
-    <div class="welcome-section">
-      <div class="welcome-content">
-        <h1>Welcome to Legend Academy</h1>
-        <p>Lorem ipsum is a dummy text until you give me better text to use for the actual welcome message. Even better having this Why go elsewhere?</p>
-        <button class="read-more">Read More</button>
+    <!-- Right Side - Welcome Banner -->
+    <div class="w-1/2 bg-[#FF4500] relative overflow-hidden">
+      <div class="absolute inset-0 bg-black/50 z-10"></div>
+      <img
+        src="/placeholder.svg?height=800&width=600"
+        alt="Student"
+        class="absolute inset-0 w-full h-full object-cover"
+      />
+      <div class="relative z-20 p-12 text-white h-full flex flex-col justify-center">
+        <h2 class="text-4xl font-bold mb-4">Welcome to Legend Academy</h2>
+        <p class="mb-6">
+          Lorem ipsum is a dummy text used as a place holder before the actual information is inputted. Don't bother reading this. Why are you still reading?
+        </p>
+        <button class="text-white border border-white px-6 py-2 inline-flex items-center hover:bg-white/10 transition-colors w-fit">
+          Read more
+        </button>
       </div>
     </div>
   </div>
@@ -63,186 +98,19 @@
 
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { Eye, EyeOff } from 'lucide-vue-next'
 
 const email = ref('')
 const password = ref('')
 const rememberMe = ref(false)
-const router = useRouter()
+const showPassword = ref(false)
 
 const handleLogin = () => {
-  // Placeholder for actual login logic
-  console.log('Login attempted', {
+  // Handle login logic here
+  console.log({
     email: email.value,
     password: password.value,
     rememberMe: rememberMe.value
   })
-
-  // Redirect to Dashboard on successful login
-  router.push({ name: 'dashboard' })
 }
-
 </script>
-
-<style scoped>
-/* Styles remain the same as before */
-.login-container {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.login-form-section {
-  flex: 1;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem;
-}
-
-.login-form-container {
-  max-width: 400px;
-  margin: 0 auto;
-  width: 100%;
-}
-
-.logo-container {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.logo {
-  max-width: 200px;
-  height: auto;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 1rem;
-  color: #666;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 400;
-}
-
-.form-input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1rem;
-}
-
-.remember-me {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.login-button {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: #FF4500;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1rem;
-}
-
-.login-button:hover {
-  background-color: #FF5722;
-}
-
-.footer {
-  text-align: center;
-  margin-top: 2rem;
-  color: #666;
-  font-size: 0.875rem;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.welcome-section {
-  flex: 1;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  padding: 2rem;
-  background: linear-gradient(rgba(255, 69, 0, 0.85), rgba(255, 69, 0, 0.85)),
-              url('@/assets/background.jpg') center/cover no-repeat;
-  overflow: hidden;
-}
-
-.welcome-content {
-  max-width: 400px;
-  text-align: center;
-  font-family: 'Source Sans Pro', sans-serif;
-  position: relative;
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding: 2rem;
-  border-radius: 8px;
-  backdrop-filter: blur(5px);
-}
-
-.heading-container {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 2rem;
-}
-
-.welcome-content h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  font-family: 'Source Sans Pro', sans-serif;
-  white-space: nowrap;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.heading-underline {
-  width: 100%;
-  height: 1px;
-  background-color: white;
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-}
-
-.welcome-content p {
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  font-family: 'Source Sans Pro', sans-serif;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.read-more {
-  padding: 0.75rem 2rem;
-  background-color: transparent;
-  border: 2px solid white;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: 600;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
-
-.read-more:hover {
-  background-color: white;
-  color: #FF4500;
-}
-</style>
