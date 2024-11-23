@@ -2,16 +2,17 @@
   <div id="app" class="flex h-screen">
     <!-- Left Sidebar -->
     <aside v-if="!$route.name.includes('Login')" class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
-       <div class="mb-12 text-center">
-        <h1 class="text-2xl font-bold bg-gradient-to-r from-white to-gray-100 inline-block px-4 py-2 rounded-lg">
-          <span class="text-white">L</span>
-          <span class="text-orange-500">=</span>
-          <span class="text-white">G</span>
-          <span class="text-orange-500">=</span>
-          <span class="text-white">ND</span>
-          <div class="text-sm font-normal mt-1 text-gray-200">Academy</div>
-        </h1>
-      </div>
+      <div class="mb-12 text-center">
+  <h1 class="text-2xl font-bold inline-block px-4 py-2 rounded-lg text-shadow-lg">
+    <span class="text-white">L</span>
+    <span class="text-orange-500">=</span>
+    <span class="text-white">G</span>
+    <span class="text-orange-500">=</span>
+    <span class="text-white">ND</span>
+    <div class="text-sm font-normal mt-1 text-gray-200">Academy</div>
+  </h1>
+</div>
+
       <nav class="space-y-2">
         <router-link
           v-for="item in navigationItems"
@@ -238,3 +239,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.text-shadow-lg {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Adjust blur and opacity as needed */
+}
+</style>
