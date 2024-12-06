@@ -1,3 +1,4 @@
+
 <template>
   <div class="min-h-screen flex items-center justify-center bg-gray-100 relative">
     <!-- Backgrounds -->
@@ -11,14 +12,8 @@
         <div class="max-w-md mx-auto w-full">
           <!-- Logo -->
           <div class="mb-12 text-center">
-            <h1 class="text-2xl font-bold">
-              <span>L</span>
-              <span class="text-orange-500">=</span>
-              <span>G</span>
-              <span class="text-orange-500">=</span>
-              <span>ND</span>
-              <div class="text-sm font-normal mt-1">Academy</div>
-            </h1>
+            <img src="/legend 1.png" alt="Legend Academy" class="h-12 mx-auto" />
+            <div class="text-sm font-normal mt-1">Academy</div>
           </div>
 
           <!-- Login Form -->
@@ -107,7 +102,7 @@ import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { Eye, EyeOff } from 'lucide-vue-next';
 
-const router = useRouter(); // Use the router instance
+const router = useRouter();
 
 const email = ref('');
 const password = ref('');
@@ -125,3 +120,4 @@ const handleLogin = () => {
   router.push('/dashboard');
 };
 </script>
+

@@ -3,15 +3,9 @@
     <!-- Left Sidebar -->
     <aside v-if="!$route.name.includes('Login')" class="w-64 bg-black border-r border-gray-700 p-4 flex-shrink-0">
       <div class="mb-12 text-center">
-  <h1 class="text-2xl font-bold inline-block px-4 py-2 rounded-lg text-shadow-lg">
-    <span class="text-white">L</span>
-    <span class="text-orange-500">=</span>
-    <span class="text-white">G</span>
-    <span class="text-orange-500">=</span>
-    <span class="text-white">ND</span>
-    <div class="text-sm font-normal mt-1 text-gray-200">Academy</div>
-  </h1>
+  <img src="/Group 1000002601.png" alt="Legend Academy" class="w-48 mx-auto" />
 </div>
+
 
       <nav class="space-y-2">
         <router-link
