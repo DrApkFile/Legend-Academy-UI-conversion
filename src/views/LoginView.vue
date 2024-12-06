@@ -12,7 +12,7 @@
         <div class="max-w-md mx-auto w-full">
           <!-- Logo -->
           <div class="mb-12 text-center">
-            <img src="/Frame 1618871038.png" alt="Legend Academy" class="h-40 mx-auto" />
+            <img src="/Frame 1618871038.png" alt="Legend Academy" class="h-30 mx-auto" />
           </div>
 
           <!-- Login Form -->
