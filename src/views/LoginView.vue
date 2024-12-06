@@ -13,7 +13,7 @@
           <!-- Logo -->
           <div class="mb-12 text-center">
             <img src="/legend 1.png" alt="Legend Academy" class="h-12 mx-auto" />
-            <div class="text-sm font-normal mt-1">Academy</div>
+           <div class="text-4xl font-normal mt-1 font-source-sans-pro">Academy</div>
           </div>
 
           <!-- Login Form -->
