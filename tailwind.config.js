@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'source-sans-pro': ['Source Sans Pro', 'sans-serif'],
+      },
       colors: {
         orange: {
           DEFAULT: '#FD4F00',
@@ -25,6 +28,7 @@ module.exports = {
         },
         // New colors
         skyBlue: {
+
           DEFAULT: '#98D2E1',
           500: '#98D2E1',
         },
