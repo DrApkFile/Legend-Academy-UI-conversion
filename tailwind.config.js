@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
@@ -23,8 +23,26 @@ export default {
           600: '#4B5054', // Using the same gray for consistency
           700: '#374151', // Darker gray for text
         },
+        // New colors
+        skyBlue: {
+          DEFAULT: '#98D2E1',
+          500: '#98D2E1',
+        },
+        limeGreen: {
+          DEFAULT: '#A1CF81',
+          500: '#A1CF81',
+        },
+        paleYellow: {
+          DEFAULT: '#EFDEA4',
+          500: '#EFDEA4',
+        },
+        lightGreen: {
+          DEFAULT: '#BAD77A',
+          500: '#BAD77A',
+        },
       },
     },
   },
   plugins: [],
 }
+
